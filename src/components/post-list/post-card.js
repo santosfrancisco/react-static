@@ -9,7 +9,7 @@ import {
 
 const PostCard = styled(props => (
   <Col className={props.className} sm="12" md="6" lg="4">
-    <Card>
+    <Card className="ml-0 mr-0">
       <Link to={`/blog/post/${props.post.data.slug}`} className="post-card-thumbnail__wrapper">
         <CardImg className="post-card-thumbnail" top width="100%" src={props.post.data.thumbnail} alt="Post featured image" />
         <span className="post-card-thumbnail__inner-text">Read post</span>

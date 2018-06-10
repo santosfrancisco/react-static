@@ -5,7 +5,8 @@ import {
   Navbar,
   NavbarToggler,
   Nav,
-  NavItem } from 'reactstrap';
+  NavItem
+} from 'reactstrap';
 
 export default class extends React.Component {
   constructor(props) {
@@ -23,18 +24,22 @@ export default class extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Navbar color="primary" dark expand="md">
-          <Link className="nav-link" to="/">My site</Link>
+      <Navbar color="primary" dark expand="md">
+        <div className="container">
+          <Link className="navbar-brand" to="/">My site</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto d-md-none" navbar>
-              <NavItem>
-                <Link className="nav-link" onClick={this.toggle} to="/blog/">Blog</Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" onClick={this.toggle} to="/about/">About</Link>
-              </NavItem>
+              <Link onClick={this.toggle} to="/blog/">
+                <NavItem>
+                  <span>Blog</span>
+                </NavItem>
+              </Link>
+              <Link onClick={this.toggle} to="/about/">
+                <NavItem>
+                  <span>About</span>
+                </NavItem>
+              </Link>
             </Nav>
             <Nav className="ml-auto d-none d-md-flex" navbar>
               <NavItem>
@@ -45,8 +50,8 @@ export default class extends React.Component {
               </NavItem>
             </Nav>
           </Collapse>
-        </Navbar>
-      </div>
+        </div>
+      </Navbar>
     );
   }
 }
