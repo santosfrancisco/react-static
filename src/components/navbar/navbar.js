@@ -7,6 +7,7 @@ import {
   Nav,
   NavItem
 } from 'reactstrap';
+import styled from 'styled-components';
 
 export default class extends React.Component {
   constructor(props) {
@@ -30,15 +31,11 @@ export default class extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto d-md-none" navbar>
-              <Link onClick={this.toggle} to="/blog/">
-                <NavItem>
-                  <span>Blog</span>
-                </NavItem>
+              <Link className="nav-item" onClick={this.toggle} to="/blog/">
+                  <span className="nav-link py-0">Blog</span>
               </Link>
-              <Link onClick={this.toggle} to="/about/">
-                <NavItem>
-                  <span>About</span>
-                </NavItem>
+              <Link className="nav-item" onClick={this.toggle} to="/about/">
+                  <span className="nav-link py-0">About</span>
               </Link>
             </Nav>
             <Nav className="ml-auto d-none d-md-flex" navbar>
