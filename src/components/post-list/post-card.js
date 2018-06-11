@@ -26,8 +26,7 @@ const PostCard = styled(props => (
   </Col>
 ))`
   margin-bottom: 1.25rem !important;
-  padding-right: 0;
-  padding-left: 0;
+  
   .post-card-thumbnail__wrapper {
     width: 100%;
     height: 300px;
