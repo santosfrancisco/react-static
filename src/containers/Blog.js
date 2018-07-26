@@ -4,10 +4,10 @@ import { withRouteData } from 'react-static'
 //
 import PostList from '../components/post-list'
 
-export default withRouteData(({ posts }) => (
+export default withRouteData(({ posts, ...props }) => (
   <div style={{paddingTop: '1rem'}}>
-    <h1>It's blog time.</h1>
+    <h1>It's blog time..</h1>
     <br />
-    <PostList posts={posts} />
+    <PostList posts={posts} {...props} />
   </div>
 ))
