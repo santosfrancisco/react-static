@@ -8,7 +8,17 @@ import {
   NavItem,
 } from 'reactstrap'
 // import styled from 'styled-components'
-import config from '../../../config'
+
+const menuOptions = [
+  {
+    text: 'Blog',
+    route: '/blog'
+  },
+  {
+    text: 'About',
+    route: '/about'
+  }
+]
 
 export default class extends React.Component {
   constructor (props) {
@@ -25,18 +35,15 @@ export default class extends React.Component {
     })
   }
   render () {
-    const {
-      navBrandText = '',
-      menu = []
-    } = config
+    const {navBrand} = this.props
     return (
       <Navbar color="secondary" dark expand="md">
         <div className="container">
-          <Link className="navbar-brand" to="/">{navBrandText}</Link>
+          <Link className="navbar-brand" to="/">{navBrand}</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto d-md-none" navbar>
-              {menu.map(option => (
+              {menuOptions.map(option => (
                 <Link className="nav-item" key={option.text} onClick={this.toggle} to={option.route}>
                   <span className="nav-link py-0">{option.text}</span>
                 </Link>

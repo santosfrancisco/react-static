@@ -11,10 +11,13 @@ export default styled(withRouteData(({ className, post }) => (
     <br />
     <h3>{post.data.title}</h3>
     <Moment format="MMMM Do, YYYY">{post.data.date}</Moment>
-    <img className="image" src={post.data.thumbnail} alt="" />
+    <img className="post__image" src={post.data.thumbnail} alt="" />
     <Markdown source={post.content} escapeHtml={false} />
   </div>
 )))`
   display: flex;
   flex-direction: column;
+  .post__image {
+    object-fit: cover;
+  }
 `

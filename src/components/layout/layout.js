@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { SiteData } from 'react-static'
 import styled from 'styled-components'
 import { Container } from 'reactstrap'
 
@@ -8,12 +9,16 @@ class Layout extends Component {
   render () {
     const { className, children } = this.props
     return (
-      <div className={className}>
-        <Navbar />
-        <Container className='content'>
-          {children}
-        </Container>
-      </div>
+      <SiteData className={className}>
+        {({ title, metaDescription }) => (
+          <React.Fragment>
+            <Navbar navBrand={title} />
+            <Container className='content'>
+              {children}
+            </Container>
+          </React.Fragment>
+        )}
+      </SiteData>
 
     )
   }
