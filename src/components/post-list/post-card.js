@@ -3,24 +3,29 @@ import Moment from 'react-moment'
 import { Link } from 'react-static'
 import styled from 'styled-components'
 import {
-  Col, Card, CardImg, CardTitle, CardText,
-  CardSubtitle, CardBody,
+  Col,
+  Card,
+  CardImg,
+  CardTitle,
+  CardText,
+  CardSubtitle,
+  CardBody
 } from 'reactstrap'
 
 const PostCard = styled(props => (
-  <Col className={props.className} sm="12" md="6" lg="4">
-    <Card className="ml-0 mr-0">
-      <Link to={`/blog/post/${props.post.data.slug}`} className="post-card-thumbnail__wrapper">
-        <CardImg className="post-card-thumbnail" top width="100%" src={props.post.data.thumbnail} alt="Post featured image" />
-        <span className="post-card-thumbnail__inner-text">Read post</span>
+  <Col className={props.className} sm='12' md='6' lg='4'>
+    <Card className='ml-0 mr-0'>
+      <Link to={`/blog/post/${props.post.data.slug}`} className='post-card-thumbnail__wrapper'>
+        <CardImg className='post-card-thumbnail' top width='100%' src={props.post.data.thumbnail} alt='Post featured image' />
+        <span className='post-card-thumbnail__inner-text'>Read post</span>
       </Link>
       <CardBody>
-        <CardTitle className="post-card__title">{props.post.data.title}</CardTitle>
+        <CardTitle className='post-card__title'>{props.post.data.title}</CardTitle>
         <CardSubtitle>
-          <Moment className="post-card__date" format="MMMM Do, YYYY">{props.post.data.date}</Moment>
+          <Moment className='post-card__date' format='MMMM Do, YYYY'>{props.post.data.date}</Moment>
         </CardSubtitle>
-        <CardText className="post-card__excerpt">{`${props.post.content.slice(0, 200)}...`}</CardText>
-        <Link className="post-card__read-more clearfix" to={`/blog/post/${props.post.data.slug}`}>Read more...</Link>
+        <CardText className='post-card__excerpt'>{`${props.post.content.slice(0, 200)}...`}</CardText>
+        <Link className='post-card__read-more clearfix' to={`/blog/post/${props.post.data.slug}`}>Read more...</Link>
       </CardBody>
     </Card>
   </Col>

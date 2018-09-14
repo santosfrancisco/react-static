@@ -8,6 +8,7 @@ import {
   NavItem,
 } from 'reactstrap'
 // import styled from 'styled-components'
+import config from '../../../config'
 
 export default class extends React.Component {
   constructor (props) {
@@ -24,19 +25,22 @@ export default class extends React.Component {
     })
   }
   render () {
+    const {
+      navBrandText = '',
+      menu = []
+    } = config
     return (
-      <Navbar color="primary" dark expand="md">
+      <Navbar color="secondary" dark expand="md">
         <div className="container">
-          <Link className="navbar-brand" to="/">My site</Link>
+          <Link className="navbar-brand" to="/">{navBrandText}</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto d-md-none" navbar>
-              <Link className="nav-item" onClick={this.toggle} to="/blog/">
-                <span className="nav-link py-0">Blog</span>
-              </Link>
-              <Link className="nav-item" onClick={this.toggle} to="/about/">
-                <span className="nav-link py-0">About</span>
-              </Link>
+              {menu.map(option => (
+                <Link className="nav-item" key={option.text} onClick={this.toggle} to={option.route}>
+                  <span className="nav-link py-0">{option.text}</span>
+                </Link>
+              ))}
             </Nav>
             <Nav className="ml-auto d-none d-md-flex" navbar>
               <NavItem>
